@@ -3,9 +3,10 @@ go: 1.14.x
 script:
   - make
 
-deploy: 
-  provider: heroku
-  api_key: $HEROKU_TOKEN
-  strategy: git
-  on:
-    branch: staging
+# Uncomment when ready to deploy for version 0.1.0
+#  deploy: 
+#    provider: heroku
+#    api_key: $HEROKU_TOKEN
+#    strategy: git
+#    on:
+#      branch: staging
