@@ -1,0 +1,11 @@
+language: go
+go: 1.14.x
+script:
+  - go test -v ./...
+
+deploy: 
+  provider: heroku
+  api_key: $HEROKU_TOKEN
+  strategy: git
+  on:
+    branch: staging
