@@ -1,7 +1,8 @@
 language: go
 go: 1.14.x
 script:
-  - make
+  - make deps
+  - make test
 
 # Uncomment when ready to deploy for version 0.1.0
 #  deploy: 
