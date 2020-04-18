@@ -1,4 +1,4 @@
-package config
+package frmwrk
 
 import (
 	"encoding/json"
