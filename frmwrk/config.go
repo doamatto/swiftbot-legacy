@@ -7,21 +7,21 @@ import (
 )
 
 var (
-	Token     string
-	BotPrefix string
+	token  string
+	prefix string
 
 	config *configStruct
 )
 
 type configStruct struct {
-	Token     string `json:"Token"`
-	BotPrefix string `json:"BotPrefix"`
+	token  string `json:"token"`
+	prefix string `json:"prefix"`
 }
 
-func ReadConfig() error {
+func ReadConfig(filename string) error {
 	fmt.Println("Reading config file...")
 
-	file, err := ioutil.ReadFile("./config.json")
+	file, err := ioutil.ReadFile(filename)
 
 	if err != nil {
 		fmt.Println(err.Error())
