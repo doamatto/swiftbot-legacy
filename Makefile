@@ -13,7 +13,10 @@ build:
 
 test:
 		$(GOTEST) -v ./...
-		
+
+test-travis:
+		$(GOTEST) -v ../...
+
 clean:
 		$(GOCLEAN)
 		rm -f $(BINARY_NAME)

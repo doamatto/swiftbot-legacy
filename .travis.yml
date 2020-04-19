@@ -2,7 +2,7 @@ language: go
 go: 1.14.x
 script:
   - make deps
-  - make test
+  - make test-travis
 
 # Uncomment when ready to deploy for version 0.1.0
 #  deploy: 
