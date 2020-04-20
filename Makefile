@@ -1,23 +1,16 @@
-GOCMD=go
-GOCLEAN=$(GOCMD) clean
-GOTEST=$(GOCMD) test
-GOGET=$(GOCMD) get
 BINARY_NAME=swiftbot
 BINARY_UNIX=$(BINARY_NAME)_unix
 
 deps:
-		$(GOGET) github.com/bwmarrin/discordgo
+		go github.com/bwmarrin/discordgo
 
 build:
-		$(GOBUILD) -o $(BINARY_NAME) -v
+		go -o $(BINARY_NAME) -v
 
 test:
-		$(GOTEST) -v ./...
-
-test-travis:
-		$(GOTEST) -v ../...
+		go -v ./...
 
 clean:
-		$(GOCLEAN)
+		go
 		rm -f $(BINARY_NAME)
 		rm -f $(BINARY_UNIX)
