@@ -2,26 +2,38 @@ package main
 
 import (
 	"fmt"
+	io "io/ioutil"
+	"strings"
 
 	"./frmwrk"
 	dgo "github.com/bwmarrin/discordgo"
 )
 
 var (
-	conf  *frmwrk.config
-	cmd   *frmwrk.CmdHandler
+	conf  *frmwrk.Config
 	botID string
 	bot   *discordgo.Session
 )
 
+type (
+	cmdStruct struct {
+		cmd command
+	}
+
+	cmdMap map[string]cmdStruct
+
+	cmdHandler struct {
+		cmds cmdMap
+	}
+)
+
 func init() {
-	conf = frmwrk.readConf("config.json") // Load Config file
+	config = conf.readConf("config.json") // Load Config file
 	prefix := conf.prefix // Set prefix
 }
 
 func start() {
-	cmd = frmwrk.cmdHandler() 
-	regCommands()
+	cmdImport() 
 	bot, err := discordgo.New(conf.token) // Start bot
 	if err != nil {
 		fmt.Println("Couldn't start Discord bot: ", err)
@@ -36,6 +48,7 @@ func start() {
 
 	botID = u.ID
 	Bot.AddHandler(msgHandle) // Activate handler for messages
+	// Bot.AddHandler (eventHandle) // Activate handler for events
 
 	err = bot.Open()
 	if err != nil {
@@ -46,25 +59,28 @@ func start() {
 	<-make(chan struct{})
 }
 
-func msgHandle(s *dgo.Session, m *dgo.MessageCreate) {
-	content := m.Content
-	user := m.Author
-	if m.Author.ID == botID {
+func cmdImport(handler cmdHandler, s *dgo.Session, m *dgo.MessageCreate) {
+	cmds, err := ioutil.ReadDir("./cmds")
+	if err != nil {
+		fmt.Println("Couldn't import commands: ", err)
 		return
-	} // Prevent bot from messaging itself
+	}
+	for _, cmd := range cmds {
+		fmt.Println("Loading command ", cmd.Name())
+		cmdstruct := cmdStruct{command: command, help: helpmsg}
+		cmdHandler.cmds[name] = cmdstruct
+		if len(name) > 1 {
+			handler.cmds[name[:1]] = cmdstruct
+		}
+	}
+}
 
-	if len(content) <= len(prefix) { return }
-	if content[:len(prefix)] != prefix { return }
-	content = content[len(prefix):]
-	if len(content) < 1 { return }
+func msgHandle(handler cmdHandler, s *dgo.Session, m *dgo.MessageCreate) {
+	content := m.Content 
+	if !strings.HasPrefix(content, conf.prefix) { return } // Check if prefix is used; stop if it isn't
+	user := m.Author
+	if m.Author.ID == botID { return } // Prevent bot from messaging itself
 
 	args := strings.Fields(content)
 	name := strings.ToLower(args[0])
-	cmd, found := cmdHandler.Get(name)
-
-	if !found { return }
-}
-
-func regCommands() {
-	cmdHandler.Reg("ping", cmd.ping, "First there's a ping, then there's a...")
 }
