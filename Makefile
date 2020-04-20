@@ -2,15 +2,15 @@ BINARY_NAME=swiftbot
 BINARY_UNIX=$(BINARY_NAME)_unix
 
 deps:
-		go github.com/bwmarrin/discordgo
+		go get github.com/bwmarrin/discordgo
 
 build:
-		go -o $(BINARY_NAME) -v
+		go build -o $(BINARY_NAME) -v
 
 test:
-		go -v ./...
+		go test -v ./...
 
 clean:
-		go
+		go clean
 		rm -f $(BINARY_NAME)
 		rm -f $(BINARY_UNIX)
