@@ -2,17 +2,16 @@ package main
 
 import (
 	"fmt"
-	io "io/ioutil"
+	"io/ioutil"
 	"strings"
 
-	"./frmwrk"
 	dgo "github.com/bwmarrin/discordgo"
 )
 
 var (
-	conf  *frmwrk.Config
+	conf  *frmwrk.config
 	botID string
-	bot   *discordgo.Session
+	bot   *dgo.Session
 )
 
 type (
@@ -28,13 +27,13 @@ type (
 )
 
 func init() {
-	config = conf.readConf("config.json") // Load Config file
-	prefix := conf.prefix // Set prefix
+	conf = conf.readConf("config.json") // Load Config file
+	prefix := conf.prefix               // Set prefix
 }
 
 func start() {
-	cmdImport() 
-	bot, err := discordgo.New(conf.token) // Start bot
+	cmdImport()
+	bot, err := dgo.New(conf.token) // Start bot
 	if err != nil {
 		fmt.Println("Couldn't start Discord bot: ", err)
 		return
@@ -42,12 +41,12 @@ func start() {
 
 	u, err := bot.User("@me") // Fetch account details
 	if err != nil {
-		fmt.Println("Couldn't fetch account details: ", err))
+		fmt.Println("Couldn't fetch account details: ", err)
 		return
 	}
 
 	botID = u.ID
-	Bot.AddHandler(msgHandle) // Activate handler for messages
+	bot.AddHandler(msgHandle) // Activate handler for messages
 	// Bot.AddHandler (eventHandle) // Activate handler for events
 
 	err = bot.Open()
@@ -76,10 +75,14 @@ func cmdImport(handler cmdHandler, s *dgo.Session, m *dgo.MessageCreate) {
 }
 
 func msgHandle(handler cmdHandler, s *dgo.Session, m *dgo.MessageCreate) {
-	content := m.Content 
-	if !strings.HasPrefix(content, conf.prefix) { return } // Check if prefix is used; stop if it isn't
+	content := m.Content
+	if !strings.HasPrefix(content, conf.prefix) {
+		return
+	} // Check if prefix is used; stop if it isn't
 	user := m.Author
-	if m.Author.ID == botID { return } // Prevent bot from messaging itself
+	if m.Author.ID == botID {
+		return
+	} // Prevent bot from messaging itself
 
 	args := strings.Fields(content)
 	name := strings.ToLower(args[0])
