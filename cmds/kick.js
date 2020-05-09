@@ -25,4 +25,4 @@ module.exports = {
     help: {
         name: "kick"
     }
-}
+};
