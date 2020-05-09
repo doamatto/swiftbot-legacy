@@ -1,0 +1,26 @@
+{
+	"name": "swiftbot",
+	"version": "0.1.0",
+	"license": "BSD-3-Clause",
+	"description": "A JavaScript-Based Discord Bot Made to Increase your Workflow and Autonomy",
+	"main": "main.js",
+	"dependencies": {
+		"discord.js": "^12.2.0"
+	},
+	"scripts": {
+		"start": "node main.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/doamatto/swiftbot.git"
+	},
+	"author": "doamatto",
+	"bugs": {
+		"url": "https://github.com/doamatto/swiftbot/issues"
+	},
+	"homepage": "https://swiftby.knoxcorp.me",
+	"engines": {
+		"node": "14.2.0",
+		"npm": "6.14.4"
+	}
+}
