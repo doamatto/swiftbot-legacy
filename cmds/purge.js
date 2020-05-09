@@ -18,14 +18,20 @@ module.exports = {
             }
         }
         // TODO: Ignore decimals
-        const f = m.channel.fetchMessages({limit: dCount});
-        m.channel.bulkDelete(f)
-        .then(msg => {
-            m.reply(`Deleted ${msg.size} messages.`);
-        })        
+        const f = m.channel.messages.fetch({limit: dCount})
+        .then(function(list) {
+            m.channel.bulkDelete(list)
+            .then(msg => {
+                m.reply(`Deleted ${msg.size} messages.`);
+            })        
+            .catch(err => {
+                m.channel.send(`Swift is strong, just not strong enough. (\`${err}\`)`);
+                return console.error(err);
+            });
+        })
         .catch(err => {
-            m.reply("Something went wrong! The Ghost Busters are on the   case!");
-            console.error(`Couldn't delete some messages because ${err}`);
+            m.channel.send(`Swift is strong, just not strong enough. (\`${err}\`)`);
+            return console.error(err);
         });
     },
 
