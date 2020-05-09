@@ -7,9 +7,9 @@ djs.cmds = new discord.Collection();
 fs.readdir("./events/", (err, files) => {
 	if(err) return console.error(err);
 	files.forEach(file => {
-		let eventFunc = require(`./events/${file}`);
-		let eventName = file.split(".")[0];
-		djs.on(eventName, (...args) => eventFunc.run(djs, ...args));
+		let eFunc = require(`./events/${file}`);
+		let eName = file.split(".")[0];
+		djs.on(eName, (...args) => eFunc.run(djs, ...args));
 	});
 });
 
