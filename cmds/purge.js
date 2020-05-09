@@ -5,8 +5,10 @@ module.exports = {
         if(!m.guild.me.hasPermission("MANAGE_MESSAGES"))
             return m.reply("You might be able to delete people, but Swift can't. (Make sure Swift has the permission *Manage Messages*)");
 
+        var dCount;
+
         try {
-            var dCount = parseInt(args[0], 10);
+            dCount = parseInt(args[0], 10);
         } catch(err) {
             return m.reply("Nice try, but that's not a number. (If it is a number, then report this as a bug)");
         }
@@ -38,4 +40,4 @@ module.exports = {
     help: {
         name: "purge"
     }
-}
+};
