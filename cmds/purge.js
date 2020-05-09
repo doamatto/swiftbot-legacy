@@ -1,9 +1,9 @@
 module.exports = {
-    run: function(m, args) {
+    run: function(djs, m, args) {
         if(!m.member.hasPermission("MANAGE_MESSAGES"))
             return m.reply("Swift might be able to delete messages, but you can't. (You need the *Manage Messages* permission)");
         if(!m.guild.me.hasPermission("MANAGE_MESSAGES"))
-            return m.reply("You might be able to ban people, but Swift can't. (Make sure Swift has the permission *Manage Messages*.");
+            return m.reply("You might be able to delete people, but Swift can't. (Make sure Swift has the permission *Manage Messages*)");
 
         try {
             var dCount = parseInt(args[0], 10);
