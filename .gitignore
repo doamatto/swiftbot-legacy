@@ -1,17 +1,37 @@
-# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
 
-# Test binary, built with `go test -c`
-*.test
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# Dependency directories (remove the comment below to include it)
-vendor/
+# Dependency directories
+node_modules/
+jspm_packages/
 
-config.json
+# TypeScript v1 declaration files
+typings/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# dotenv environment variables file
+.env
+.env.test
+
+# Temporary folders
+tmp/
+temp/
