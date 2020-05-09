@@ -1,7 +1,7 @@
 const discord = require("discord.js");
 const fs = require("fs");
 const conf = require("./config.json");
-const djs = new discord.djs();
+const djs = new discord.Client();
 djs.cmds = new discord.Collection();
 
 fs.readdir("./events/", (err, files) => {
