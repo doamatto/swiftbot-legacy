@@ -2,11 +2,11 @@ const nfetch = require("node-fetch");
 module.exports = {
     run: function (djs, m, args) {
         if(m.mentions.members.size < 1)
-            return m.channel.send("Who did you say you were going to hug? (You need to mention the user you want to hug)");
+            return m.channel.send("Who did you say you were going to kiss? (You need to mention the user you want to kiss)");
         if(m.mentions.members.size > 1)
-            return m.channel.send("You're such a great Care Bear. Unfortunately, Swift isn't. (Mention only one user to hug)");
+            return m.channel.send("You're such a great Care Bear. Unfortunately, Swift isn't. (Mention only one user to kiss)");
         let u = m.guild.member(m.mentions.members.first());
-        nfetch("https://nekos.life/api/hug", {
+        nfetch("https://nekos.life/api/kiss", {
             method: 'GET'
         })
         .then(res => res.json())
@@ -20,7 +20,7 @@ module.exports = {
                     }
                 });
             } else {
-                m.channel.send(`${m.author.username} hugged ${u}. How sweet.`, {
+                m.channel.send(`${m.author.username} kiss ${u}. How sweet.`, {
                 embed: {
                     image: {
                         url: json.url
@@ -32,6 +32,6 @@ module.exports = {
         });
     },
     help: {
-        name: "hug"
+        name: "kiss"
     }
 }
