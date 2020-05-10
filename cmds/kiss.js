@@ -20,7 +20,7 @@ module.exports = {
                     }
                 });
             } else {
-                m.channel.send(`${m.author.username} kiss ${u}. How sweet.`, {
+                m.channel.send(`${m.author.username} kissed ${u}. How sweet.`, {
                 embed: {
                     image: {
                         url: json.url
