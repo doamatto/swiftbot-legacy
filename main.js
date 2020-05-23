@@ -4,7 +4,7 @@ const conf = require("./config.json");
 const djs = new discord.Client();
 djs.cmds = new discord.Collection();
 
-fs.readdir("./events/", (err, files) => {
+fs.readdir("events/", (err, files) => {
 	if(err) return console.error(err);
 	files.forEach(file => {
 		let eFunc = require(`./events/${file}`);
@@ -13,7 +13,7 @@ fs.readdir("./events/", (err, files) => {
 	});
 });
 
-fs.readdir("./cmds/", (err, files) => {
+fs.readdir("cmds/", (err, files) => {
 	if(err) return console.error(err);
 	let file = files.filter(f => f.split(".").pop() === "js");
 	if(file.length <= 0) {
