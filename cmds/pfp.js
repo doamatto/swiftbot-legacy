@@ -11,6 +11,6 @@ module.exports = {
       });
     },
     help: {
-        name: "poke"
+        name: "pfp"
     }
 };
