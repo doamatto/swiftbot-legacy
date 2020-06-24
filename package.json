@@ -5,19 +5,19 @@
 	"description": "A JavaScript-Based Discord Bot Made to Increase your Workflow and Autonomy",
 	"main": "main.js",
 	"dependencies": {
-    "discord.js": "^12.2.0",
-    "mongodb": "^3.5.9",
+		"discord.js": "^12.2.0",
+		"mongodb": "^3.5.9",
 		"node-fetch": "^2.6.0",
-    "node-schedule": "^1.3.2",
-    "ytdl-core": "^2.1.7"
-  },
-  "devDependencies": {
-    "jshint": "^2.11.1"
-  },
+		"node-schedule": "^1.3.2",
+		"ytdl-core": "^2.1.7"
+	},
+	"devDependencies": {
+		"jshint": "^2.11.1"
+	},
 	"scripts": {
-    "start": "node main.js",
-    "test": "node --trace-warnings main.js",
-    "linter": "jshint . --exclude ./node_modules"
+		"start": "node main.js",
+		"test": "node --trace-warnings main.js",
+		"linter": "jshint . --exclude ./node_modules"
 	},
 	"repository": {
 		"type": "git",
