@@ -78,6 +78,9 @@ module.exports = {
         embed: {
           title: `${tag}'s profile`,
           url: `https://playoverwatch.com/en-us/career/pc/${tagAlt}`,
+          footer: {
+            "text": "The data from Ow-Api.com might not be completely accurate. You can click on the profile link to see the most accurate version of the data via PlayOverwatch.com"
+          },
           thumbnail: { url: json.icon },
           author: {
             "name": rating,
