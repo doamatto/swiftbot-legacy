@@ -27,7 +27,7 @@ module.exports = {
       if(json.rating === 0) {
         rating = "Not Ranked";
       } else if(json.rating === 0 && json.level < 25){
-        rating = "Can't Play Comp"
+        rating = "Can't Play Comp";
       } else {
         if(rating >= 1 <= 1499) {
           rating = `Ranked Bronze at ${json.rating}`;
@@ -44,9 +44,9 @@ module.exports = {
         }
       } // Calcualte comp rank based on rating
       if(compStats.eliminationsAvg === undefined) {
-        comp = `${username} hasn't played competitive this season yet.`
+        comp = `${username} hasn't played competitive this season yet.`;
       } else {
-        comp = `${username} has won ${compStats.games.won} games. They've got an average of ${compStats.eliminationsAvg} elims, an average of ${compStats.damageDoneAvg} hitpoints, and healed an average of ${compStats.healingDoneAvg} healing. ${compMedals}${username} has also earned ${compStats.awards.cards} cards.`
+        comp = `${username} has won ${compStats.games.won} games. They've got an average of ${compStats.eliminationsAvg} elims, an average of ${compStats.damageDoneAvg} hitpoints, and healed an average of ${compStats.healingDoneAvg} healing. ${compMedals}${username} has also earned ${compStats.awards.cards} cards.`;
       } // Makes sure the user has played comp the current season
       function medalCalc(type) {
         let awards;
@@ -64,11 +64,11 @@ module.exports = {
           let mostMedals = Math.max(awards.medalsBronze, awards.medalsSilver, awards.medalsGold);
           let phrase = `In total, they've collected ${awards.medals} medals, with the majority being`;
           if(awards.medalsBronze === mostMedals) {
-            if(type === "comp") { compMedals = `${phrase} bronze. `; } else if(type === "qp") { qpMedals = `${phrase} bronze. ` }
+            if(type === "comp") { compMedals = `${phrase} bronze. `; } else if(type === "qp") { qpMedals = `${phrase} bronze. `; }
           } else if(awards.medalsSilver === mostMedals) {
-            if(type === "comp") { compMedals = `${phrase} silver. `; } else if(type === "qp") { qpMedals = `${phrase} silver. ` }
+            if(type === "comp") { compMedals = `${phrase} silver. `; } else if(type === "qp") { qpMedals = `${phrase} silver. `; }
           } else if(awards.medalsGold === mostMedals) {
-            if(type === "comp") { compMedals = `${phrase} gold. `; } else if(type === "qp") { qpMedals = `${phrase} gold. ` }
+            if(type === "comp") { compMedals = `${phrase} gold. `; } else if(type === "qp") { qpMedals = `${phrase} gold. `; }
           }
         }
       } // Calculate majority of medals
@@ -97,7 +97,7 @@ module.exports = {
           ]
         }
       });
-    })
+    });
   },
   help: {
     name: "overwatch"
