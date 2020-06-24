@@ -23,7 +23,7 @@
 	},
 	"homepage": "https://swiftby.knoxcorp.me",
 	"engines": {
-		"node": "14.2.0",
-		"npm": "6.14.4"
+		"node": "14.4.0",
+		"npm": "6.14.5"
 	}
 }
