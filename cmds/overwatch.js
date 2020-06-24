@@ -24,8 +24,10 @@ module.exports = {
         prestige += json.level; // Add the base level to the prestige level count
         level = `Level ${prestige}`;
       } // Calculate prestiges into levels
-      if(json.rating === undefined) {
+      if(json.rating === 0) {
         rating = "Not Ranked";
+      } else if(json.rating === 0 && json.level < 25){
+        rating = "Can't Play Comp"
       } else {
         if(rating >= 1 <= 1499) {
           rating = `Ranked Bronze at ${json.rating}`;
