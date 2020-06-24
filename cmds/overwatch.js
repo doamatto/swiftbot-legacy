@@ -72,8 +72,8 @@ module.exports = {
           }
         }
       } // Calculate majority of medals
-      medalCalc("comp");
       medalCalc("qp");
+      medalCalc("comp");
       m.channel.send(`Here's ${tag}'s profile`, {
         embed: {
           title: `${tag}'s profile`,
