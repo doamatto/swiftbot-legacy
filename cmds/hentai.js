@@ -13,7 +13,7 @@ module.exports = {
       });
     }).on("error", (err) => {
       console.error(`Fatal error when fetching hentai. Here's the error: ${err}`);
-      return m.channel.send(`Something went wrong. Go to https://github.com/doamatto/swiftbot/issues and report this bug. Make sure to mention the following: ${err}`)
+      return m.channel.send(`Something went wrong. Go to https://github.com/doamatto/swiftbot/issues and report this bug. Make sure to mention the following: ${err}`);
     });
   },
   help: {
