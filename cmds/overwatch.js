@@ -17,7 +17,7 @@ module.exports = {
       let qpStats = json.quickPlayStats;
       let compStats = json.competitiveStats;
       let level, prestige, rating;
-      (function calcPrestiege() {
+      function calcPrestiege() {
         if(json.prestige === 0 | json.prestige === undefined) {
           level = `Level ${json.level}`;
         } else {
@@ -25,8 +25,8 @@ module.exports = {
           prestige += json.level; // Add the base level to the prestige level count
           level = `Level ${prestige}`;
         }
-      });// Calculate prestiges into levels
-      (function calcRank() {
+      }// Calculate prestiges into levels
+      function calcRank() {
         if(json.rating === 0) {
           rating = "Not Ranked";
         } else if(json.rating === 0 && json.level < 25){
@@ -46,14 +46,14 @@ module.exports = {
             rating = `Ranked Grandmaster at ${json.rating}`;
           }
         }
-      }); // Calcualte comp rank based on rating
-      (function ensureComp() {
+      } // Calcualte comp rank based on rating
+      function ensureComp() {
         if(compStats.eliminationsAvg === undefined) {
           comp = `${username} hasn't played competitive this season yet.`;
         } else {
           comp = `${username} has won ${compStats.games.won} games. They've got an average of ${compStats.eliminationsAvg} elims, an average of ${compStats.damageDoneAvg} hitpoints, and healed an average of ${compStats.healingDoneAvg} healing. ${compMedals}${username} has also earned ${compStats.awards.cards} cards.`;
         }
-      }); // Makes sure the user has played comp the current season
+      } // Makes sure the user has played comp the current season
 
       function medalCalc(type) {
         let awards;
@@ -79,6 +79,9 @@ module.exports = {
           }
         }
       } // Calculate majority of medals
+      calcPrestiege();
+      calcRank();
+      ensureComp();
       medalCalc("qp");
       medalCalc("comp");
       m.channel.send(`Here's ${tag}'s profile`, {
