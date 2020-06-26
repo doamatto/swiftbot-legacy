@@ -1,7 +1,7 @@
 const conf = require("../config.json");
 
 module.exports.run = (djs) => {
-    setTimeout(1000);
+    setTimeout((function(){}),1000);
     console.log(`Logged in as ${djs.user.username}`);
     if(djs.guilds.size === undefined) {
         djs.user.setActivity(`${conf.prefix}help`);
