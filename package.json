@@ -27,7 +27,7 @@
 	"bugs": {
 		"url": "https://github.com/doamatto/swiftbot/issues"
 	},
-	"homepage": "https://swiftby.knoxcorp.me",
+	"homepage": "https://swiftby.doamatto.xyz",
 	"engines": {
 		"node": "14.4.0",
 		"npm": "6.14.5"
