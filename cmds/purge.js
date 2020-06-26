@@ -15,9 +15,9 @@ module.exports = {
     } catch(err) {
       return m.reply("Nice try, but that's not a number. (If it is a number, then report this as a bug)");
     } // Ensures number of messages is a number
-    if(dCount % 1 != 0) {
+    if(args[0] % 1 != 0) {
       return m.channel.send("I might be powerful, but there's one thing I can't do. And that's split messages. (When providing a number, make sure it isn't a partial (fraction, decimal, etc)");
-    } // Ensures number of messages isn't a variable
+    } // Ensures number of messages isn't a decimal
 
     if(dCount > 100) { // Cap deletes at 100 to keep it fast (I think there's also a ratelimit)
       while(dCount > 100) {
