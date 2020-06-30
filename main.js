@@ -29,14 +29,17 @@ fs.readdir('./cmds', (err, files) => {
 });
 
 djs.on("message", m => {
-	if(m.author.bot) return;
-	if(!m.content.startsWith(conf.prefix)) return;
-	let prefix = (conf.prefix);
-	let msgArray = m.content.split(/ +/g);
-	let cmd = msgArray[0];
-	let args = msgArray.slice(1);
+	if(m.author.bot) return; // If messages comes from a bot then ignore
+	if(!m.content.startsWith(conf.prefix)) return; // Only read messages that have the prefix
+	let prefix = (conf.prefix); // Set the prefix
+	let msgArray = m.content.slice(prefix.length).split(/ +/g); // Split the two halves of the command
+	let cmd = msgArray.shift().toLowerCase(); // The command would be before the first space...
+	let args = msgArray.slice(1); // ...followed by arguments after the first space
 
-	let cmdFile = djs.cmds.get(cmd.slice(prefix.length));
+	let cmdFile = djs.cmds.get(cmd) || djs.cmds.find(command => command.help.aliases && command.help.aliases.includes(cmd));
+	if(!cmdFile) return;  // If the command doesn't exist, then stop before it starts throwing errors
+
+	console.log(cmdFile);
 	if(cmdFile) return cmdFile.run(djs, m, args);
 });
 
