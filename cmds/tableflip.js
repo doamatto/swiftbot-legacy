@@ -1,10 +1,10 @@
 module.exports = {
 	run: function (djs, m, args) {
-		m.channel.send("(°-°)\\ ┬─┬").then(ms => {
+		m.channel.send("(°-°)\\ ┬─┬").then(m => {
 			setTimeout(() => {
-				ms.edit("(╯°□°)╯    ]").then(mss => {
+				m.edit("(╯°□°)╯    ]").then(m => {
 					setTimeout(() => {
-						mss.edit("(╯°□°)╯  ︵  ┻━┻");
+						m.edit("(╯°□°)╯  ︵  ┻━┻");
 					}, 500);
 				});
 			}, 500);
@@ -13,6 +13,6 @@ module.exports = {
 
 	help: {
         name: "tableflip",
-        alias: "tf"
+        aliases: [ "tf" ] 
 	}
 };
