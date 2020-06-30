@@ -22,6 +22,7 @@ module.exports = {
       }
     },
     help: {
-        name: "pfp"
+        name: "pfp",
+        aliases: [ "icon", "profilepicture" ]
     }
 };

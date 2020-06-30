@@ -13,6 +13,6 @@ module.exports = {
 
 	help: {
         name: "unflip",
-        alias: "uf"
+        aliases: [ "uf" ]
 	}
 };

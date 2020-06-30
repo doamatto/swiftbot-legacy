@@ -114,6 +114,7 @@ module.exports = {
     });
   },
   help: {
-    name: "overwatch"
+    name: "overwatch",
+    aliases: [ "ow" ]
   }
 };
