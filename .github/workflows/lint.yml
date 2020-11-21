@@ -16,5 +16,5 @@ jobs:
       
     - name: eslint
       run: |
-        npm i eslint -g
+        yarn global add eslint
         eslint .
