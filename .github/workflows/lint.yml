@@ -16,5 +16,5 @@ jobs:
       
     - name: eslint
       run: |
-        npm i esling -g
+        npm i eslint -g
         eslint .
