@@ -1,7 +1,0 @@
-{
-    "token": "",
-    "prefix": "!",
-    
-    "mongoURL": "localhost",
-    "mongoDB": "swift"
-}
