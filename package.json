@@ -6,7 +6,7 @@
 	"main": "main.js",
 	"dependencies": {
 		"discord.js": "^12.2.0",
-  	"lodash": ">=4.17.19",
+  	"lodash": "4.17.21",
 		"mongodb": "^3.5.9",
 		"node-fetch": "^2.6.1",
 		"ytdl-core": "^4.0.0"
