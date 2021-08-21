@@ -1,6 +1,6 @@
 # Swift
 
-**This is being replaced with [this repo](). The code will be public when it is ready™**
+**This is being replaced with [this repo](https://github.com/doamatto/dove). The code will be public when it is ready™**
 
 Swift is a feature rich Discord bot written in Node to allow users to have plenty of power and features in their server with no hassle. Swift is optimized to run smooth and has monthly updates bringing new amazing features to the table and bug fixes fixed in as fast as one day to be patched and running smooth again.
 
